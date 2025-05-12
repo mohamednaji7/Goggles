@@ -1,47 +1,36 @@
-! name: Discussions
-! description: Boosts discussion forums and threads in search results
-! public: true
+! name: Discussions Filter
+! description: Boosts discussion-type search results, downranks or discards non-discussions
+! public: false
 ! author: Mohamed Nagy
 
 ! Boost 10 discussions patterns
-/r/AskReddit/$boost=10
-/r/technology/$boost=10
-|https://www.reddit.com/r/*/$boost=10
+|https://reddit.com/r/$boost=10
 |https://stackoverflow.com/questions/$boost=10
-/showthread/$boost=10
-/show-thread/$boost=10
-/showpost/$boost=10
-/show-post/$boost=10
-$boost=10,site=forums.macrumors.com
-$boost=10,site=forums.tomshardware.com
-$boost=10,site=stackexchange.com
+|https://stackexchange.com/questions/$boost=10
 
 ! Boost 5 discussions patterns
-$boost=5,site=quora.com
-$boost=5,site=medium.com
-/viewthread/$boost=5
-$boost=5,site=github.com
+/viewthread$inurl,boost=5
+/showthread$inurl,boost=5
+/showpost$inurl,boost=5
+/show-post$inurl,boost=5
+/next-thread$inurl,boost=5
+/next-post$inurl,boost=5
 
 ! Boost 2 discussions patterns
-/next-thread/$incontent,$boost=2
-/next-post/$incontent,$boost=2
-/next-comment/$incontent,$boost=2
-/send-comment/$incontent,$boost=2
-/send-private-message/$incontent,$boost=2
+$boost=2,site=quora.com
+$boost=2,site=forums.macrumors.com
+$boost=2,site=forums.tomshardware.com
+$boost=2,site=github.com
 
 ! Downrank 2 non-discussion patterns
-/viewtopic$inurl,$downrank=2
-/showtopic$inurl,$downrank=2
-/index.php?topic$inurl,$downrank=2
-/reading-this-topic$incontent,$downrank=2
-/next-topic$incontent,$downrank=2
-$downrank=5,site=forbes.com
+/viewtopic$inurl,downrank=2
+/showtopic$inurl,downrank=2
+/index.php?topic$inurl,downrank=2
+$downrank=2,site=forbes.com
 
 ! Downrank 5 non-discussion patterns
-/blog$inurl,$downrank=5
-/blog/$inurl,$downrank=5
-
-! Downrank 10 non-discussion patterns
+/reading-this-topic$inbody,downrank=5
+/next-topic$inbody,downrank=5
 
 ! Discard non-discussion patterns
 /blog/$discard
