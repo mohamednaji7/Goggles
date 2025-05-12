@@ -17,16 +17,31 @@
 /next-post$inurl,boost=5
 
 ! Boost 2 discussions patterns
-$boost=2,site=quora.com
+$boost=1,site=quora.com
+
+$boost=2,site=news.ycombinator.com
+$boost=2,site=reddit.com
+$boost=2,site=dev.to
+$boost=2,site=forum.hardware.fr
+$boost=2,site=community.home-assistant.io
+$boost=2,site=discuss.python.org
+$boost=2,site=daniweb.com
+$boost=2,site=meta.stackexchange.com
 $boost=2,site=forums.macrumors.com
 $boost=2,site=forums.tomshardware.com
 $boost=2,site=github.com
+/thread$inurl,boost=2
+/comments$inurl,boost=2
+/discussion$inurl,boost=2
+
 
 ! Downrank 2 non-discussion patterns
 /viewtopic$inurl,downrank=2
 /showtopic$inurl,downrank=2
 /index.php?topic$inurl,downrank=2
 $downrank=2,site=forbes.com
+$downrank=2,site=wired.com
+$downrank=2,site=techcrunch.com
 
 ! Downrank 5 non-discussion patterns
 /reading-this-topic$intext,downrank=5
