@@ -7,14 +7,15 @@
 |https://reddit.com/r/$boost=10
 |https://stackoverflow.com/questions/$boost=10
 |https://stackexchange.com/questions/$boost=10
+/viewthread$inurl,boost=9
+/showthread$inurl,boost=9
+/showpost$inurl,boost=9
+/show-post$inurl,boost=9
+/next-thread$inurl,boost=9
+/next-post$inurl,boost=9
 
 ! Boost 5 discussions patterns
-/viewthread$inurl,boost=5
-/showthread$inurl,boost=5
-/showpost$inurl,boost=5
-/show-post$inurl,boost=5
-/next-thread$inurl,boost=5
-/next-post$inurl,boost=5
+
 
 ! Boost 2 discussions patterns
 $boost=2,site=quora.com
@@ -23,14 +24,17 @@ $boost=2,site=forums.tomshardware.com
 $boost=2,site=github.com
 
 ! Downrank 2 non-discussion patterns
-/viewtopic$inurl,downrank=2
-/showtopic$inurl,downrank=2
-/index.php?topic$inurl,downrank=2
 $downrank=2,site=forbes.com
 
+
 ! Downrank 5 non-discussion patterns
-/reading-this-topic$intext,downrank=5
-/next-topic$intext,downrank=5
+
+! Downrank 10 non-discussion patterns
+/reading-this-topic$intext,downrank=9
+/next-topic$intext,downrank=9
+/viewtopic$inurl,downrank=9
+/showtopic$inurl,downrank=9
+/index.php?topic$inurl,downrank=9
 
 ! Discard non-discussion patterns
 /blog/$discard
