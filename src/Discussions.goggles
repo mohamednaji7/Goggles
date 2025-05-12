@@ -35,7 +35,7 @@ $boost=5,site=github.com
 /index.php?topic$inurl,$downrank=2
 /reading-this-topic$incontent,$downrank=2
 /next-topic$incontent,$downrank=2
-$downrank=5,site=github.com
+$downrank=5,site=forbes.com
 
 ! Downrank 5 non-discussion patterns
 /blog$inurl,$downrank=5
