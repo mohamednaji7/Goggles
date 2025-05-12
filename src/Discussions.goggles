@@ -29,8 +29,8 @@ $boost=2,site=github.com
 $downrank=2,site=forbes.com
 
 ! Downrank 5 non-discussion patterns
-/reading-this-topic$inbody,downrank=5
-/next-topic$inbody,downrank=5
+/reading-this-topic$intext,downrank=5
+/next-topic$intext,downrank=5
 
 ! Discard non-discussion patterns
 /blog/$discard
