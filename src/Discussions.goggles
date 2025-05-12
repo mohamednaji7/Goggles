@@ -36,7 +36,8 @@ inbody:"reading this topic"$downrank=2
 inbody:"next topic"$downrank=2
 
 ! Discard non-discussion patterns
-inurl:'/blog/'$discard
+! inurl:'/blog/'$discard
+/blog/$discard
 
 ! Force discard 
-$discard,site=explodingtopics.com
+! $discard,site=explodingtopics.com
