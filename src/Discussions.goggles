@@ -1,0 +1,42 @@
+! name: DiscussionsGoggle
+! description: A Goggle to prioritize discussion-based content such as forums, Reddit, and Q&A platforms.
+! public: true
+! author: Mohamed Nagy
+
+
+! Boost discussion-related patterns and sites
+inurl:forum$boost=3
+inurl:viewthread$boost=3
+inurl:showthread$boost=3
+inurl:show-thread$boost=3
+inurl:showpost$boost=3
+inurl:show-post$boost=3
+inbody:"next thread"$boost=2
+inbody:"next post"$boost=2
+inbody:"send post"$boost=2
+inbody:"next comment"$boost=2
+inbody:"send comment"$boost=2
+inbody:"send private message"$boost=2
+
+! Boost specific discussion-heavy sites
+$site=reddit.com$boost=4
+$site=stackexchange.com$boost=4
+$site=quora.com$boost=3
+$site=stackoverflow.com$boost=4
+$site=github.com$boost=3
+$site=forums.macrumors.com$boost=3
+$site=forums.tomshardware.com$boost=3
+$site=medium.com$boost=2
+
+! Downrank non-discussion patterns
+inurl:viewtopic$downrank=2
+inurl:showtopic$downrank=2
+inurl:"index.php?topic"$downrank=2
+inbody:"reading this topic"$downrank=2
+inbody:"next topic"$downrank=2
+
+! Discard non-discussion patterns
+inurl:'/blog/'$discard
+
+! Force discard 
+$discard,site=explodingtopics.com
