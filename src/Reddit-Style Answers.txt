@@ -1,0 +1,97 @@
+! name: Reddit-Style Answers
+! description: Enhances search results to favor high-quality Q&A content from Reddit, Stack Exchange, and other reputable discussion platforms
+! public: true
+! author: Justus Gleißner, Muhammed Nagy
+! avatar:rgb(28, 223, 223)
+
+! Primary Platforms with High-Quality Content
+$boost=4,site=reddit.com
+$boost=3,site=stackoverflow.com
+$boost=3,site=askubuntu.com
+$boost=3,site=superuser.com
+$boost=2,site=quora.com
+
+! Specific High-Quality Subreddits
+/r/askscience/$boost=4
+/r/askhistorians/$boost=4
+/r/explainlikeimfive/$boost=3
+/r/askreddit/$boost=3
+/r/nostupidquestions/$boost=3
+/r/answers/$boost=3
+/r/techsupport/$boost=3
+/r/programming/$boost=3
+/r/learnprogramming/$boost=3
+/r/cscareerquestions/$boost=3
+/r/askengineers/$boost=3
+/r/askdocs/$boost=3
+/r/legaladvice/$boost=3
+/r/personalfinance/$boost=3
+/r/buildapc/$boost=3
+/r/homeimprovement/$boost=3
+
+! Reddit Quality Indicators
+/r/*/comments/$boost=2
+/r/*/wiki/$boost=3
+/r/*/top/$boost=2
+
+! Technical Documentation and Wikis
+$boost=2,site=wiki.archlinux.org
+$boost=2,site=debian.org
+$boost=2,site=ubuntu.com
+$boost=2,site=github.com
+$boost=2,site=gitlab.com
+$boost=2,site=serverfault.com
+$boost=2,site=mathoverflow.net
+
+! Professional/Educational Sites
+$discard,site=medium.com
+$discard,site=dev.to
+$discard,site=freecodecamp.org
+$discard,site=geeksforgeeks.org
+
+! Q&A URL Patterns
+/questions/$boost=2
+/answers/$boost=2
+/solution/$boost=2
+/solved/$boost=2
+/answer/$boost=2
+/howto/$boost=2
+/guide/$boost=2
+/tutorial/$boost=2
+/explained/$boost=2
+/discussion/$boost=1
+/wiki/$boost=2
+/docs/$boost=2
+/documentation/$boost=2
+/help/$boost=1
+
+! Quality Indicators in URLs
+/best[-]answer/$discard
+/verified[-]solution/$discard
+/official[-]guide/$discard
+/comprehensive/$discard
+/complete[-]guide/$discard
+/accepted[-]answer/$discard
+
+! Exclude Low Quality Sources
+$discard,site=gutefrage.net
+$downrank=3,site=answers.com
+$downrank=3,site=experts-exchange.com
+$downrank=2,site=chegg.com
+$downrank=2,site=coursehero.com
+
+! Downrank Commercial/Spam Content
+/sponsored/$discard
+/promoted/$discard
+/advertisement/$discard
+/affiliate/$discard
+/marketing/$discard
+/buy[-]now/$discard
+/shopping/$discard
+
+! Downrank Low-Quality Indicators
+/click[-]bait/$discard
+/you[-]wont[-]believe/$discard
+/miracle[-]solution/$discard
+/one[-]weird[-]trick/$discard
+/shocking[-]result/$discard
