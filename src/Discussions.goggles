@@ -28,12 +28,18 @@ $site=forums.macrumors.com$boost=3
 $site=forums.tomshardware.com$boost=3
 $site=medium.com$boost=2
 
-! Downrank non-discussion patterns
+! Downrank 2 non-discussion patterns
 inurl:viewtopic$downrank=2
+viewtopic$inurl,downrank=2
 inurl:showtopic$downrank=2
 inurl:"index.php?topic"$downrank=2
 inbody:"reading this topic"$downrank=2
 inbody:"next topic"$downrank=2
+$site=forbes.com,downrank=2
+
+! Downrank 10 non-discussion patterns
+
+! Downrank 5 non-discussion patterns
 
 ! Discard non-discussion patterns
 ! inurl:'/blog/'$discard
