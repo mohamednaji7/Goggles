@@ -1,49 +1,46 @@
-! name: DiscussionsGoggle
-! description: A Goggle to prioritize discussion-based content such as forums, Reddit, and Q&A platforms.
+! name: Discussions
+! description: Boosts discussion forums and threads in search results
 ! public: true
 ! author: Mohamed Nagy
 
+! Boost 10 discussions patterns
+/r/AskReddit/$boost=10
+/r/technology/$boost=10
+|https://www.reddit.com/r/*/$boost=10
+|https://stackoverflow.com/questions/$boost=10
+/showthread/$boost=10
+/show-thread/$boost=10
+/showpost/$boost=10
+/show-post/$boost=10
+$boost=10,site=forums.macrumors.com
+$boost=10,site=forums.tomshardware.com
+$boost=10,site=stackexchange.com
 
-! Boost discussion-related patterns and sites
-inurl:forum$boost=3
-inurl:viewthread$boost=3
-inurl:showthread$boost=3
-inurl:show-thread$boost=3
-inurl:showpost$boost=3
-inurl:show-post$boost=3
-inbody:"next thread"$boost=2
-inbody:"next post"$boost=2
-inbody:"send post"$boost=2
-inbody:"next comment"$boost=2
-inbody:"send comment"$boost=2
-inbody:"send private message"$boost=2
+! Boost 5 discussions patterns
+$boost=5,site=quora.com
+$boost=5,site=medium.com
+/viewthread/$boost=5
+$boost=5,site=github.com
 
-! Boost specific discussion-heavy sites
-$site=reddit.com$boost=4
-$site=stackexchange.com$boost=4
-$site=quora.com$boost=3
-$site=stackoverflow.com$boost=4
-$site=github.com$boost=3
-$site=forums.macrumors.com$boost=3
-$site=forums.tomshardware.com$boost=3
-$site=medium.com$boost=2
+! Boost 2 discussions patterns
+/next-thread/$incontent,$boost=2
+/next-post/$incontent,$boost=2
+/next-comment/$incontent,$boost=2
+/send-comment/$incontent,$boost=2
+/send-private-message/$incontent,$boost=2
 
 ! Downrank 2 non-discussion patterns
-inurl:viewtopic$downrank=2
-viewtopic$inurl,downrank=2
-inurl:showtopic$downrank=2
-inurl:"index.php?topic"$downrank=2
-inbody:"reading this topic"$downrank=2
-inbody:"next topic"$downrank=2
-$site=forbes.com,downrank=2
+/viewtopic$inurl,$downrank=2
+/showtopic$inurl,$downrank=2
+/index.php?topic$inurl,$downrank=2
+/reading-this-topic$incontent,$downrank=2
+/next-topic$incontent,$downrank=2
+
+! Downrank 5 non-discussion patterns
+/blog$inurl,$downrank=5
+/blog/$inurl,$downrank=5
 
 ! Downrank 10 non-discussion patterns
 
-! Downrank 5 non-discussion patterns
-
 ! Discard non-discussion patterns
-! inurl:'/blog/'$discard
 /blog/$discard
-
-! Force discard 
-! $discard,site=explodingtopics.com
